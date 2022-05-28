@@ -6,11 +6,11 @@
 #include  "tree.h"
 
 std::vector<char> getPerm(const Tree& tree, int n) {
-  std::string s = tree[n - 1];
+  std::string a = tree[n - 1];
   std::vector<char> perm;
   int x = 0;
-  while (x < s.length()) {
-    perm.push_back(s[x]);
+  while (x < a.length()) {
+    perm.push_back(a[x]);
     ++x;
   }
   return perm;
