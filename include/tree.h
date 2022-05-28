@@ -4,16 +4,16 @@
 #include <vector>
 #include <string>
 
-using namespace std;
+
 class Tree {
  private:
   struct Node {
   char value;
-  vector<Node*> leaf;
+  std::vector<Node*> leaf;
   };
   Node* root;
-  vector<string> Perm;
-  void Permutation(Node* root, string s = "") {
+  std::vector<std::string> Perm;
+  void Permutation(Node* root, std::string s = "") {
     if (!root->leaf.size()) {
       s += root->value;
       Perm.push_back(s);
@@ -26,7 +26,7 @@ class Tree {
     Permutation(root->leaf[i], s);
   }
 }
-void constructTree(Node* root, vector<char> path) {
+void constructTree(Node* root, std::vector<char> path) {
   if (!path.size()) {
     return;
   }
@@ -47,15 +47,16 @@ void constructTree(Node* root, vector<char> path) {
   for (size_t i = 0; i < root->leaf.size(); ++i) {
     constructTree(root->leaf[i], path);
   }
-}  
+}
+
  public:
-  string operator[](int i) const {
+  std::string operator[](int i) const {
   if (i >= Perm.size()) {
     return "";
   }
   return Perm[i];
 }
-  explicit Tree(vector<char> value) {
+  explicit Tree(std::vector<char> value) {
   root = new Node;
   root->value = '*';
   constructTree(root, value);
