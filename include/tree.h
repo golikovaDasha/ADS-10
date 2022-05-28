@@ -62,6 +62,6 @@ void constructTree(Node* root, vector<char> path) {
   root->value = '*';
   constructTree(root, value);
   Permutation(root);
-  }   
+  }
 };
 #endif  // INCLUDE_TREE_H_
