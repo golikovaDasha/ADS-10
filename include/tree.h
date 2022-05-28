@@ -5,7 +5,6 @@
 #include <string>
 
 using namespace std;
-
 class Tree {
  private:
   struct Node {
@@ -48,8 +47,7 @@ void constructTree(Node* root, vector<char> path) {
   for (size_t i = 0; i < root->leaf.size(); ++i) {
     constructTree(root->leaf[i], path);
   }
-} 
-  
+}  
  public:
   string operator[](int i) const {
   if (i >= Perm.size()) {
@@ -57,7 +55,7 @@ void constructTree(Node* root, vector<char> path) {
   }
   return Perm[i];
 }
-  Tree(vector<char> value) {
+  explicit Tree(vector<char> value) {
   root = new Node;
   root->value = '*';
   constructTree(root, value);
